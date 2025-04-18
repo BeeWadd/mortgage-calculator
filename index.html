@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="One‑page Mortgage Payment Calculator: quickly calculate your monthly payment, total cost, and total interest." />
+  <title>Mortgage Payment Calculator</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- AdSense snippet: replace 'YOUR_ADSENSE_CLIENT' with your own -->
+  <!--
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=YOUR_ADSENSE_CLIENT" crossorigin="anonymous"></script>
+  -->
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+  <main class="bg-white p-8 rounded-2xl shadow-lg max-w-md w-full">
+    <h1 class="text-2xl font-bold text-center mb-6">Mortgage Payment Calculator</h1>
+
+    <div class="space-y-4">
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Loan Amount (USD)</label>
+        <input id="principal" type="number" value="200000" min="0" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500" />
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Annual Interest Rate (%)</label>
+        <input id="rate" type="number" step="0.01" value="3.5" min="0" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500" />
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Term (Years)</label>
+        <input id="years" type="number" value="30" min="1" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500" />
+      </div>
+      <button id="calculate" class="w-full bg-indigo-600 text-white py-2 rounded-lg font-semibold hover:bg-indigo-700">Calculate</button>
+    </div>
+
+    <hr class="my-6" />
+
+    <div class="space-y-2 text-center">
+      <p>💰 Monthly Payment: <span id="monthlyPayment" class="font-bold">—</span></p>
+      <p>📈 Total Payment: <span id="totalPayment" class="font-bold">—</span></p>
+      <p>💸 Total Interest: <span id="totalInterest" class="font-bold">—</span></p>
+    </div>
+  </main>
+
+  <script>
+    document.getElementById('calculate').addEventListener('click', function() {
+      const P = parseFloat(document.getElementById('principal').value);
+      const annualRate = parseFloat(document.getElementById('rate').value);
+      const years = parseFloat(document.getElementById('years').value);
+      const r = annualRate / 100 / 12;
+      const n = years * 12;
+      const M = P * r / (1 - Math.pow(1 + r, -n));
+      const total = M * n;
+      const interest = total - P;
+      document.getElementById('monthlyPayment').textContent = M.toLocaleString(undefined, {style: 'currency', currency: 'USD'});
+      document.getElementById('totalPayment').textContent = total.toLocaleString(undefined, {style: 'currency', currency: 'USD'});
+      document.getElementById('totalInterest').textContent = interest.toLocaleString(undefined, {style: 'currency', currency: 'USD'});
+    });
+    // Auto-calculate on load
+    document.getElementById('calculate').click();
+  </script>
+</body>
+</html>
