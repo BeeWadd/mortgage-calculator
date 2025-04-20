@@ -2,9 +2,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Mortguage.app – Free, one‑page mortgage calculator with deep-dive explanations, FAQs, and instant payment estimates." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="description" content="Mortguage.app – Free, one‑page mortgage calculator with deep‑dive explanations, FAQs, and instant payment estimates.">
   <title>Mortguage.app — Mortgage Payment Calculator</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -14,12 +14,17 @@
           crossorigin="anonymous"></script>
 </head>
 <body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
-  <main class="bg-white p-8 rounded-2xl shadow-lg max-w-3xl w-full">
+  <main class="bg-white p-6 lg:p-12 rounded-2xl shadow-lg max-w-3xl w-full">
   
     <!-- Top Image -->
-    <img src="https://source.unsplash.com/featured/1200x400/?house" 
-         alt="Beautiful house exterior" 
-         class="w-full rounded-lg mb-6 object-cover h-64" />
+    <div class="w-full h-64 overflow-hidden rounded-lg mb-6 bg-gray-200">
+      <img
+        src="https://source.unsplash.com/1200x400/?house"
+        alt="Beautiful house exterior"
+        class="w-full h-full object-cover"
+        loading="lazy"
+      >
+    </div>
 
     <h1 class="text-3xl font-bold text-center mb-4">Calculate Your Mortgage Payment in Seconds</h1>
 
@@ -27,38 +32,30 @@
     <article class="prose prose-indigo mx-auto mb-8">
       <h2>Why Use a Mortgage Calculator?</h2>
       <p>
-        Buying a home is one of the most significant financial decisions you’ll ever make. Understanding
-        how your monthly mortgage payment breaks down can help you budget effectively and explore
-        different scenarios—whether you’re choosing between a 15‑year vs. 30‑year term or deciding
-        how much down payment to put down. Mortguage.app gives you instant estimates for your
-        <strong>monthly payment</strong>, <strong>total cost</strong>, and <strong>total interest</strong>,
-        so you can plan with confidence.
+        Buying a home is one of the most significant financial decisions you’ll ever make.
+        Understanding how your monthly mortgage payment breaks down can help you budget
+        effectively and explore different scenarios—whether you’re choosing between a 15‑year
+        vs. 30‑year term or deciding how much down payment to put down. Mortguage.app gives
+        you instant estimates for your <strong>monthly payment</strong>, <strong>total cost</strong>,
+        and <strong>total interest</strong>, so you can plan with confidence.
       </p>
 
       <h2>How the Calculation Works</h2>
-      <p>
-        At its core, your mortgage payment is determined by three factors:
-      </p>
+      <p>At its core, your mortgage payment is determined by three factors:</p>
       <ul>
-        <li>
-          <strong>Loan Amount:</strong> The total principal you’re borrowing (for example, $300,000).
-        </li>
-        <li>
-          <strong>Interest Rate:</strong> Your annual percentage rate (APR), divided by 12 months.
-        </li>
-        <li>
-          <strong>Term Length:</strong> The number of years you’ll take to pay off the loan.
-        </li>
+        <li><strong>Loan Amount:</strong> The total principal you’re borrowing (e.g. $300,000).</li>
+        <li><strong>Interest Rate:</strong> Your annual percentage rate (APR), divided by 12.</li>
+        <li><strong>Term Length:</strong> The number of years you’ll take to pay off the loan.</li>
       </ul>
       <p>
         We use the standard amortization formula:
-        <code class="bg-gray-100 px-1 rounded">M = P · r ÷ (1 − (1 + r)<sup>−n</sup>)</code>,
-        where <em>P</em> = principal, <em>r</em> = monthly rate, <em>n</em> = total payments.
+        <code class="bg-gray-100 px-1 rounded">M = P·r ÷ (1 – (1 + r)<sup>–n</sup>)</code>,
+        where <em>P</em>=principal, <em>r</em>=monthly rate, <em>n</em>=total payments.
       </p>
     </article>
 
     <!-- Calculator Controls -->
-    <div class="space-y-4 mb-6">
+    <div class="space-y-4 mb-8">
       <div>
         <label class="block text-sm font-medium text-gray-700">Loan Amount (USD)</label>
         <input id="principal" type="number" value="200000" min="0"
@@ -87,35 +84,31 @@
       <p>💸 <strong>Total Interest:</strong> <span id="totalInterest">—</span></p>
     </div>
 
-    <!-- FAQ Section -->
+    <!-- FAQ Section with native dropdowns -->
     <section class="prose prose-indigo mx-auto mb-8">
       <h2>Frequently Asked Questions</h2>
-      <h3>What's the difference between APR and interest rate?</h3>
-      <p>
-        Your APR reflects the full cost of borrowing—including fees—while the interest rate is just
-        the annual percentage charged on the principal.
-      </p>
-      <h3>Can I include taxes and insurance?</h3>
-      <p>
-        This calculator focuses on principal and interest. For a full estimate including taxes,
-        PMI, and insurance, check with your lender or use a dedicated all‑in‑one calculator.
-      </p>
-      <h3>Why does my payment change over time?</h3>
-      <p>
-        With a fixed‑rate mortgage, your payment stays the same but the portion going toward
-        interest vs. principal shifts each month.
-      </p>
+      <details class="mb-4">
+        <summary class="cursor-pointer font-medium">What's the difference between APR and interest rate?</summary>
+        <p>Your APR reflects the full cost of borrowing—including fees—while the interest rate is just the annual percentage charged on the principal.</p>
+      </details>
+      <details class="mb-4">
+        <summary class="cursor-pointer font-medium">Can I include taxes and insurance?</summary>
+        <p>This calculator focuses on principal and interest. For a full estimate including taxes, PMI, and insurance, check with your lender or use a dedicated all‑in‑one calculator.</p>
+      </details>
+      <details class="mb-4">
+        <summary class="cursor-pointer font-medium">Why does my payment change over time?</summary>
+        <p>With a fixed‑rate mortgage, your payment stays the same but the portion going toward interest vs. principal shifts each month.</p>
+      </details>
     </section>
 
     <!-- Disclaimer & Footer -->
     <footer class="text-center text-sm text-gray-500">
       <p class="mb-2">
-        <strong>Disclaimer:</strong> Mortguage.app provides estimates only. Consult a financial
-        professional for personalized advice.
+        <strong>Disclaimer:</strong> Mortguage.app provides estimates only. Consult a financial professional for personalized advice.
       </p>
       <p>
-        <a href="/privacy.html" class="underline">Privacy Policy</a> | 
-        <a href="/about.html" class="underline">About &amp; Help</a>
+        <a href="/privacy.html" class="underline">Privacy Policy</a> |
+        <a href="/about.html" class="underline">About & Help</a>
       </p>
     </footer>
   </main>
