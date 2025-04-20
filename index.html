@@ -13,24 +13,25 @@
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3843783457077507"
           crossorigin="anonymous"></script>
 </head>
-<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
-  <main class="bg-white p-6 lg:p-12 rounded-2xl shadow-lg max-w-3xl w-full">
-  
+<body class="bg-gray-100 min-h-screen flex items-start justify-center py-8 px-4">
+  <main class="bg-white p-8 lg:p-12 rounded-2xl shadow-lg max-w-3xl w-full space-y-12">
+
     <!-- Top Image -->
-    <div class="w-full h-64 overflow-hidden rounded-lg mb-6 bg-gray-200">
+    <div class="w-full h-64 overflow-hidden rounded-lg bg-gray-200">
       <img
-        src="https://source.unsplash.com/1200x400/?house"
-        alt="Beautiful house exterior"
+        src="https://source.unsplash.com/RBwO3rnNLFs/1200x400"
+        alt="Aerial view of a large house surrounded by trees"
         class="w-full h-full object-cover"
         loading="lazy"
       >
     </div>
 
-    <h1 class="text-3xl font-bold text-center mb-4">Calculate Your Mortgage Payment in Seconds</h1>
+    <!-- Hero Title -->
+    <h1 class="text-4xl font-extrabold text-center">Calculate Your Mortgage Payment in Seconds</h1>
 
-    <!-- Introductory Article (~350 words) -->
-    <article class="prose prose-indigo mx-auto mb-8">
-      <h2>Why Use a Mortgage Calculator?</h2>
+    <!-- Introductory Article -->
+    <article class="prose prose-indigo mx-auto">
+      <h2 class="text-2xl font-bold mt-8">Why Use a Mortgage Calculator?</h2>
       <p>
         Buying a home is one of the most significant financial decisions you’ll ever make.
         Understanding how your monthly mortgage payment breaks down can help you budget
@@ -40,7 +41,7 @@
         and <strong>total interest</strong>, so you can plan with confidence.
       </p>
 
-      <h2>How the Calculation Works</h2>
+      <h2 class="text-2xl font-bold mt-8">How the Calculation Works</h2>
       <p>At its core, your mortgage payment is determined by three factors:</p>
       <ul>
         <li><strong>Loan Amount:</strong> The total principal you’re borrowing (e.g. $300,000).</li>
@@ -55,59 +56,63 @@
     </article>
 
     <!-- Calculator Controls -->
-    <div class="space-y-4 mb-8">
-      <div>
-        <label class="block text-sm font-medium text-gray-700">Loan Amount (USD)</label>
-        <input id="principal" type="number" value="200000" min="0"
-               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500" />
-      </div>
-      <div>
-        <label class="block text-sm font-medium text-gray-700">Annual Interest Rate (%)</label>
-        <input id="rate" type="number" step="0.01" value="3.5" min="0"
-               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500" />
-      </div>
-      <div>
-        <label class="block text-sm font-medium text-gray-700">Term (Years)</label>
-        <input id="years" type="number" value="30" min="1"
-               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500" />
+    <section class="space-y-6">
+      <h2 class="text-2xl font-bold text-center">Your Mortgage Calculator</h2>
+      <div class="grid gap-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Loan Amount (USD)</label>
+          <input id="principal" type="number" value="200000" min="0"
+                 class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Annual Interest Rate (%)</label>
+          <input id="rate" type="number" step="0.01" value="3.5" min="0"
+                 class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Term (Years)</label>
+          <input id="years" type="number" value="30" min="1"
+                 class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500" />
+        </div>
       </div>
       <button id="calculate"
-              class="w-full bg-indigo-600 text-white py-2 rounded-lg font-semibold hover:bg-indigo-700">
+              class="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition">
         Calculate
       </button>
-    </div>
+    </section>
 
     <!-- Results -->
-    <div class="space-y-2 text-center text-gray-800 mb-8">
+    <section class="space-y-4 text-center">
+      <h2 class="text-2xl font-bold">Your Results</h2>
       <p>💰 <strong>Monthly Payment:</strong> <span id="monthlyPayment">—</span></p>
       <p>📈 <strong>Total Payment:</strong> <span id="totalPayment">—</span></p>
       <p>💸 <strong>Total Interest:</strong> <span id="totalInterest">—</span></p>
-    </div>
+    </section>
 
-    <!-- FAQ Section with native dropdowns -->
-    <section class="prose prose-indigo mx-auto mb-8">
-      <h2>Frequently Asked Questions</h2>
+    <!-- FAQ Section with dropdowns -->
+    <section class="prose prose-indigo mx-auto">
+      <h2 class="text-2xl font-bold">Frequently Asked Questions</h2>
       <details class="mb-4">
-        <summary class="cursor-pointer font-medium">What's the difference between APR and interest rate?</summary>
+        <summary class="cursor-pointer font-medium text-lg">What's the difference between APR and interest rate?</summary>
         <p>Your APR reflects the full cost of borrowing—including fees—while the interest rate is just the annual percentage charged on the principal.</p>
       </details>
       <details class="mb-4">
-        <summary class="cursor-pointer font-medium">Can I include taxes and insurance?</summary>
+        <summary class="cursor-pointer font-medium text-lg">Can I include taxes and insurance?</summary>
         <p>This calculator focuses on principal and interest. For a full estimate including taxes, PMI, and insurance, check with your lender or use a dedicated all‑in‑one calculator.</p>
       </details>
       <details class="mb-4">
-        <summary class="cursor-pointer font-medium">Why does my payment change over time?</summary>
+        <summary class="cursor-pointer font-medium text-lg">Why does my payment change over time?</summary>
         <p>With a fixed‑rate mortgage, your payment stays the same but the portion going toward interest vs. principal shifts each month.</p>
       </details>
     </section>
 
     <!-- Disclaimer & Footer -->
     <footer class="text-center text-sm text-gray-500">
-      <p class="mb-2">
+      <p class="mb-4">
         <strong>Disclaimer:</strong> Mortguage.app provides estimates only. Consult a financial professional for personalized advice.
       </p>
-      <p>
-        <a href="/privacy.html" class="underline">Privacy Policy</a> |
+      <p class="space-x-4">
+        <a href="/privacy.html" class="underline">Privacy Policy</a>
         <a href="/about.html" class="underline">About & Help</a>
       </p>
     </footer>
